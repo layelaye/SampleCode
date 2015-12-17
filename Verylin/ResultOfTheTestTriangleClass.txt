@@ -1,0 +1,21 @@
+
+
+
+DONT SUBMIT THIS , IT'S FOR YOUR RECORD
+***************************************
+***************************************
+
+
+
+
+
+Enter three valid sides for the triangle: 21 23 36
+Excellent! You've entered valid sides.
+
+Now enter a color and (true or false) to check if it's filled: 
+black true
+The Area of the triangle is: 227.332
+The perimeter of the triangle is: 80.000
+The color is black and filled is true
+Created on Sun Sep 06 21:45:50 EDT 2015
+Process finished with exit code 0

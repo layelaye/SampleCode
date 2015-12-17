@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class TestTriangle {
+
+    public static void main(String[] args) {
+
+
+        //Prompt the user to enter 3 numbers
+        System.out.print("Enter three valid sides for the triangle: ");
+
+        // create a scanner object
+        Scanner input = new Scanner(System.in);
+
+        // declare 3 variables of type double which will be initialized with  the 3 sides inputted by the user
+        double s1 = input.nextDouble();
+        double s2 = input.nextDouble();
+        double s3 = input.nextDouble();
+
+        // create a triangle object with the 3 sides inputted
+        Triangle myTriangle = new Triangle(s1, s2, s3);
+
+        // use a variable of type boolean to check if the sides are valid or no. If valid tell the user or not
+        boolean good = myTriangle.isValid(s1, s2, s3);
+        if (good)
+            System.out.print("Excellent! You've entered valid sides.\n");
+        else
+            System.out.print("You've entered invalid sides, Try again !\n");
+
+        //prompt the user to enter a color and a boolean value (true or false) whether it's filled or not
+        System.out.print("\nNow enter a color and (true or false) to check if it's filled: \n");
+
+        // declare a variable of type string that will hold the user inputted color
+        String userColor = input.next();
+
+        //declare a variable of type boolean that will hold the true or false
+        boolean userIsFilled = input.nextBoolean();
+
+        // use the instance variable of type triangle to call or invoke the setColor
+        // and pass in the color entered by the user
+        myTriangle.setColor(userColor);
+
+        // use the instance variable of type triangle to invoke the setFilled method and pass in the true or false
+        myTriangle.setFilled(userIsFilled);
+
+        //  declare and instantiate the variable calculateArea with the returned value received from the getArea();
+        double calculatedArea = myTriangle.getArea();
+
+        //  declare and instantiate the variable calculatePerimeter with the returned value received from the getPerimeter();
+        double calculatedPerimeter = myTriangle.getPerimeter();
+
+
+        // use the print format to format the calculatedArea and calculatedPerimeter to 5 digits before
+        // decimal point and 3 digit after the decimal point and also call the toString() from the superclass.
+        System.out.printf("%s%5.3f%n%s%5.3f%s", "The Area of the triangle is: ", calculatedArea,
+                "The perimeter of the triangle is: ", calculatedPerimeter, myTriangle.toString());
+
+
+    }
+
+
+}

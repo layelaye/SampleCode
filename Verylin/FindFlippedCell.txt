@@ -1,0 +1,162 @@
+// import the scanner class from the java util package
+import java.util.Scanner;
+
+public class FindFlippedCell {
+
+ // the program start at the main method  
+ public static void main(String[] args) {  
+
+        
+// prompt user the enter a 6x6 matrix
+System.out.println("Enter a 6-by-6 matrix:"); 
+
+  //call the getArray() method and assign the returned 2D matrix
+  //to the declared 2D userMatrix variable 
+ int[][] userMatrix = getArray();
+
+ // call the FirstFlippedColumn() method which takes as argument //the userMatrix and assign the the returned value to the //declared variable c of type int 
+int c = FirstFlippedColumn(userMatrix);
+
+// call the FirstFlippedRow() method which takes as argument the //userMatrix and assign the the returned value to the declared //variable r of type int 
+int r = FirstFlippedRow(userMatrix);
+
+ // print the result to the screen
+  System.out.println("The flipped cell is @ (" + r + "," + c + ")");
+
+    }  // end of the main method
+
+    
+// getArray() method of type int 2D array
+public static int[][] getArray() {  
+
+ // create a scanner object
+Scanner input = new Scanner(System.in);
+
+ // declare and instantiate a 6x6 2D Array called matrix
+  int[][] matrix = new int[6][6];
+
+// use nested for loops to initialize matrix with the user //entered value
+for (int i = 0; i < matrix.length; ++i) {
+     for (int j = 0; j < matrix[i].length; ++j) {
+          matrix[i][j] = input.nextInt();
+            }
+ }
+
+    return matrix;  // return the user entered matrix
+} // end of the getArray() method
+
+    
+
+
+// starting point of the firstflippedColumn method which takes //the user matrix as argument
+public static int FirstFlippedColumn(int[][] userMatrix) {
+
+ // declare and initialize the variable found of type boolean to //false which will be used to check if a column is odd or not
+ boolean found = false;
+
+// declare the variable luckyColumn and initialize it with 0. //will be used to hold the first odd column 
+  int luckyColumn = 0;
+
+        
+// declare and initialize the variables column and row of type //int to iterate through the nested for loops
+    int column;
+    int row;
+
+//use first outerloop to itereate through the column if the //column is less than the length of the first row and the sum of //the current column is not odd 
+for (column = 0; column < userMatrix[0].length && !found;  	++column) {
+ 
+// decalre and initialize the variable sumOfCurrentColumn to 0
+int sumOfCurrentColumn = 0;               
+  
+
+//user the innerloop to itereate through the matrix rows 
+for (row = 0; row < userMatrix.length; ++row) {  
+    
+// sum the values of the each column and assign the total to the //variable sumOfCurrentColumn
+sumOfCurrentColumn += userMatrix[row][column]; 
+            }
+
+
+ // use an if-else to check if the sum of a column is odd or not
+	if (sumOfCurrentColumn % 2 != 0) {   
+                
+// if the sum is odd then assign found = true which  will stop going to the next column
+found = true;                   
+                
+
+// assign the column number where  the sum is odd to the variable luckyColumn
+luckyColumn = column;           
+      
+// exit out the if statement
+break;                          
+        
+
+
+} else {
+
+
+// if the sum is even then go to the next column and calculate the sum
+found = false;                  
+            }
+
+        }
+
+// return the column number where the sum if odd 
+return luckyColumn;                     
+    }
+
+ // starting point of the firstflippedRow method which takes the //user matrix as argument
+  public static int FirstFlippedRow(int[][] userMatrix) {
+
+        
+// declare and initialize the variable found of type boolean to //false which will be used to check if a row is odd or not
+    boolean found = false;
+
+
+// declare and initialize the variables luckyRow,column and row //of type int to iterate through the nested for loops
+     int luckyRow = 0;
+     int column;
+     int row;
+
+        
+//use first outerloop to itereate through the row if the row is //less than the length of the first matrix and the sum of the //current row is not odd 
+ for (row = 0; row < userMatrix.length && !found; ++row) {
+   int sumOfCurrentRow = 0;
+
+ 
+//use the innerloop to itereate through the matrix column 
+for (column = 0; column < userMatrix[row].length; ++column) {  
+     
+// sum the values of the each row and assign the total to the //variable sumOfCurrentRow
+
+sumOfCurrentRow += userMatrix[row][column];    
+            }
+            
+// use an if-else to check if the sum of a row is odd or not 
+if (sumOfCurrentRow % 2 != 0) {                
+                
+
+// if the sum is odd then assign found = true which  will stop going to the next row 
+
+found = true;                              
+                
+// assign the row number where  the sum is odd to the variable //luckyRow
+luckyRow = row;                         
+               
+
+// use a break keyword to exit out the if statement
+ break;                              
+        } else {
+     
+// if the sum is even then go to the next row and calculate the //sum   
+found = false;                   
+            }
+
+        }
+   
+
+// return the row number where the sum if odd
+return luckyRow;                
+    }
+
+}

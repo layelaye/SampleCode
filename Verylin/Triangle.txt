@@ -1,0 +1,51 @@
+// import the scanner class from the java util package
+import java.util.Scanner;
+
+
+public class Triangle extends GeometricObject {
+
+    private double firstSide;     // declare private data field firstside of type double
+    private double secondSide;    // declare private data field secondside of type double
+    private double thirdSide;    // declare private data field thirdside of type double
+    private double area;            // declare private data field area of type double
+    private double perimeter;       // declare private data field perimeter of type double
+
+    // constructor with 3 sides arguments
+    public Triangle(double side1, double side2, double side3) {
+            firstSide = side1;  // initialize the object triangle data field firstSide
+            secondSide = side2;  // initialize the object triangle data field secondSide
+            thirdSide = side3;   // initialize the object triangle data field thirdSide
+    }
+
+    // declare and implement the isValid method
+    public  boolean isValid (double firstSide, double secondSide,double thirdSide) {
+
+        // check if all two sides is greater than the third, if true return true if not return false
+        if ( ((firstSide+secondSide) > thirdSide) &&( (firstSide+thirdSide) > secondSide) && ((secondSide+thirdSide) > firstSide) )
+            return true;
+        else
+            return false;
+    }
+
+    // implement the getArea() method inherited from the abstract base class and return the area
+    @Override
+    public double getArea() {
+        double p;
+        p = (firstSide+secondSide+thirdSide)/2.0;
+        area =  Math.sqrt(p*(p-firstSide)*(p-secondSide)*(p-thirdSide));
+           return area;
+
+    }
+
+    // implement the getPerimeter() method inherited from the abstract base class then return the perimter
+    @Override
+    public double getPerimeter() {
+        perimeter =  firstSide + secondSide + thirdSide;
+        return  perimeter;
+    }
+
+
+}
+
+
+

@@ -1,0 +1,65 @@
+// importing the date class from java.util package
+import java.util.Date;
+
+
+public abstract class GeometricObject {
+    
+    // declare a private data field color of type string and initialize it with white
+    private String color = "white";
+    // declare a private data field filled of type boolean a
+    private boolean filled;
+    // declare a private data field dateCreated of type Date
+    private Date dateCreated;
+
+    // no argument constructor create a new date with protected access modifier
+    protected GeometricObject(){
+        dateCreated = new Date();
+    }
+
+    // 2 arguments constructor of type string and boolean with protected access modifier
+    // which initialize the data field color and filled
+    protected GeometricObject(String color , boolean filled){
+        this.color = color;
+        this.filled = filled;
+    }
+
+    // getter method that retrieves the color
+    public String getColor() {
+        return color;
+    }
+
+    // setter method that sets the color
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    // isFilled method that returns a boolean value
+    public boolean isFilled(){
+        return filled;
+    }
+
+    // setter method setfilled which takes a boolean argument to set it
+    public void setFilled(boolean filled) {
+        this.filled = filled;
+    }
+
+    // getter method getDatecreated which returns the date
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    //overridden the toString() method from the Object Class to display better looking description
+    @Override
+    public String toString(){
+
+        return  "\nThe color is " + color + " and filled is " + filled + "\nCreated on " + dateCreated ;
+    }
+
+
+    // unimplemented abstract getArea method
+    public abstract double getArea();
+
+    // unimplemented abstract getPerimeter method
+    public abstract double getPerimeter();
+
+}
